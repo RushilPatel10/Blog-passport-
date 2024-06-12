@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-gray-300 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-lg p-10 bg-gray-800 rounded-lg shadow-2xl hover:shadow-none transition-shadow duration-300">
+        <h2 class="text-4xl font-bold mb-8 text-center text-white">Login</h2>
+        <form id="login" action="/local" method="post" class="space-y-8">
+            <div class="mb-8">
+                <div class="mb-6">
+                    <input type="text" placeholder="username" aria-label="username" aria-describedby="basic-addon1" name="username"
+                        required class="w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent hover:border-gray-400 transition-colors duration-300" />
+                </div>
+                <div class="mb-6">
+                    <input type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password"
+                        required class="w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent hover:border-gray-400 transition-colors duration-300" />
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="text-sm text-blue-400 hover:underline focus:outline-none" id="to-recover" type="button">
+                    Lost password?
+                </button>
+                <button type="submit"
+                    class="bg-blue-500 text-white px-5 py-3 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300">
+                    Login
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-8">
+            <a href="/signup" id="to-login" name="action" class="text-sm text-blue-400 hover:underline focus:outline-none">Sign Up</a>
+        </div>
+    </div>
+</body>
+
+</html>

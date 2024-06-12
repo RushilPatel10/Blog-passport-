@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-gray-900">
+    <!-- Header -->
+    <header class="bg-gray-700 p-4 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img src="https://vozzy.tmrwstudio.net/content/images/2024/02/vozzy.svg" alt="Logo" class="w-40 h-15">
+            <h1 class="text-2xl font-bold"></h1>
+        </div>
+        <nav>
+            <ul class="flex space-x-6 text-white">
+                <li><a href="#" class="hover:text-amber-400">Home</a></li>
+                <li><a href="#" class="hover:text-amber-400">About</a></li>
+                <li><a href="/add_blog" class="hover:text-amber-400 block">Add new blog</a></li>
+                <li><a href="#" class="hover:text-amber-400">Contact</a></li>
+                <li><a href="/logout" class="hover:text-amber-400">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8">
+        <!-- Blog Posts -->
+        <main>
+            <section>
+                <h2 class="text-3xl font-bold mb-6 text-white text-center">Top Blogs.....</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <% blogsData.map((blog)=> { %>
+                        <div class="bg-gray-800 p-4 rounded relative movie-card">
+                            <img src="<%= blog.image %>" alt="Show 1" class="w-full mb-2 rounded">
+                            <h3 class="text-lg font-semibold text-white">
+                                <%= blog.blog_title %>
+                            </h3>
+                            <p class="text-white">
+                                <%= blog.blog_disc %>
+                            </p>
+
+                            <div class="mt-2 inset-0 flex items-center justify-center space-x-2 ">
+                                <a href="/update_Blog/<%= blog._id %>"
+                                    class="bg-yellow-500 text-white py-1 px-2 text-center rounded bg-indigo-600 w-1/2">Edit</a>
+                                <a href="/delete_blog/<%= blog._id %>"
+                                    class="bg-red-500 text-white text-center py-1 px-2 rounded bg-red-600 w-1/2">Delete</a>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
